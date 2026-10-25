@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>note</title>
+    <link href="hvd-style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body style="background-color: black;">
+    <audio id="myAudio" src="бмг.mp3"></audio>
+<div style="display: flex; justify-content: center;">
+    <img id="myImage" src="пчелапчела.png" style="width: 100%; height: auto;"  >
+</div>
+    <script>
+      const audio = document.getElementById('myAudio');
+      const image = document.getElementById('myImage');
 
+      const images = [
+        'пчелапчела.png',
+        'пчелапчелаа.png',
+        'пчелапчелааа.png'
+      ];
+
+      let currentIndex = 0;
+
+      image.addEventListener('click', () => {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          image.src = images[currentIndex];
+
+          audio.currentTime = 0;
+          audio.play().catch(err => {
+            console.log('Автовоспроизведение заблокировано браузером', err);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
